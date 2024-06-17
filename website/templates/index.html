@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+        <button type="submit">Search Reccomendations</button>
+    </form>
+
+    {% if error %}
+    <p>No Reccomendations</p>
+    {% else %}
+    <h1>Recommendations for {{ title }}</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Creator</th>
+            <th>Starring</th>
+            <th>Genres</th>
+            <th>Describle</th>
+            <th>Time</th>
+            <th>Year</th>
+            <th>Rating</th>
+        </tr>
+        {% for recommendation in recommendations %}
+        <tr>
+            <td>{{ recommendation['name'] }}</td>
+            <td>{{ recommendation['creator'] }}</td>
+            <td>{{ recommendation['starring'] }}</td>
+            <td>{{ recommendation['genres'] }}</td>
+            <td>{{ recommendation['describle'] }}</td>
+            <td>{{ recommendation['time'] }}</td>
+            <td>{{ recommendation['year'] }}</td>
+            <td>{{ recommendation['rating'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
