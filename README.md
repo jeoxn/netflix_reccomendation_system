@@ -1,0 +1,1 @@
+Masih pemula, Puh.
